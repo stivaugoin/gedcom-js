@@ -58,8 +58,13 @@ npm i -s gedcom-js
     },
     {
       id: "I2",
-      fname: "James",
-      lname: "Potter",
+      gender: "M",
+      names: [
+        {
+          fname: "James",
+          lname: "Potter",
+        },
+      ],
       children: [
         {
           id: "I1",
@@ -71,8 +76,13 @@ npm i -s gedcom-js
     },
     {
       id: "I3",
-      fname: "Lily",
-      lname: "Evans",
+      gender: "F",
+      names: [
+        {
+          fname: "Lily",
+          lname: "Evans",
+        },
+      ],
       children: [
         {
           id: "I1",
