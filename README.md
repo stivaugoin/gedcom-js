@@ -11,7 +11,7 @@ Convert a GEDCOM file into a JS object.
 Yarn
 
 ```
-yarn gedcom-js
+yarn add gedcom-js
 ```
 
 NPM
