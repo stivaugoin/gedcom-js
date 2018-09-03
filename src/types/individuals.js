@@ -1,0 +1,31 @@
+// @flow
+export type IndividualId = string;
+
+export type Name = {|
+  fname?: string,
+  lname?: string
+|};
+
+export type OtherIndividual = {|
+  id?: IndividualId,
+  ...Name
+|};
+
+export type Children = Array<OtherIndividual>;
+
+export type Parents = Array<{|
+  relation: "father" | "mother",
+  ...OtherIndividual
+|}>;
+
+export type Gender = ?"F" | "M";
+
+export type Individual = {|
+  id: IndividualId,
+  children: Children,
+  names: Array<Name>,
+  parents: Parents,
+  gender: ?Gender
+|};
+
+export type Individuals = Array<Individual>;
