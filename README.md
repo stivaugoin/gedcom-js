@@ -1,6 +1,8 @@
 # gedcom-js
 
 [![npm](https://img.shields.io/npm/v/gedcom-js.svg?style=flat-square)](https://www.npmjs.com/package/gedcom-js)
+![GitHub](https://img.shields.io/github/license/stivaugoin/gedcom-js.svg?style=flat-square)
+
 
 Convert a GEDCOM file into a JS object.
 
