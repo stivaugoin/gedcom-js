@@ -12,7 +12,8 @@
     "dev": "npm test -- --watchAll",
     "pretest": "npm run build",
     "test": "jest",
-    "flow": "flow"
+    "flow": "flow",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "gedcom"
