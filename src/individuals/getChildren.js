@@ -1,7 +1,7 @@
 // @flow
 import findTags from "../helpers/findTags";
-import getNames from "./getNames";
 import getId from "../helpers/getId";
+import getNames from "./getNames";
 
 import type { Children } from "../types/individuals";
 import type { Seed, Seeds } from "../types/seeds";
