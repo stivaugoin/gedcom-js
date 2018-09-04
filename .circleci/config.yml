@@ -37,8 +37,5 @@ jobs:
       - run: yarn test
 
       - store_artifacts:
-          path: test-results
-          destination: prefix
-
-      - store_test_results:
-          path: test-results
+          path: test-results.xml
+          prefix: tests
