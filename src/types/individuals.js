@@ -20,6 +20,15 @@ export type Parents = Array<{|
 
 export type Gender = ?"F" | "M";
 
+export type Birth = {
+  date: string,
+  place: {
+    name: string
+  }
+};
+
+export type Births = Array<Birth>;
+
 export type Individual = {|
   id: IndividualId,
   children: Children,

@@ -16,7 +16,10 @@ const parse = (
   const INDI: Seeds = parsed.filter(node => node.tag === "INDI");
   const FAM: Seeds = parsed.filter(node => node.tag === "FAM");
 
-  const individuals = formatIndividuals(INDI, FAM);
+  const individuals = formatIndividuals({
+    individuals: INDI,
+    families: FAM
+  });
 
   return { individuals };
 };
