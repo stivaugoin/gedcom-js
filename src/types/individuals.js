@@ -20,12 +20,13 @@ export type Parents = Array<{|
 
 export type Gender = ?"F" | "M";
 
-export type Birth = {
+export type Birth = {|
   date: string,
-  place: {
+  place: {|
+    id: string,
     name: string
-  }
-};
+  |}
+|};
 
 export type Births = Array<Birth>;
 

@@ -7,6 +7,7 @@ import getNames from "./getNames";
 import getParents from "./getParents";
 
 import type { Individuals } from "../types/individuals";
+import type { Places } from "../types/places";
 
 import type { Seed, Seeds } from "../types/seeds";
 
@@ -22,11 +23,13 @@ import type { Seed, Seeds } from "../types/seeds";
  */
 
 export default ({
+  families,
   individuals,
-  families
+  places
 }: {
+  families: Seeds,
   individuals: Seeds,
-  families: Seeds
+  places: Places
 }): Individuals => {
   if (!individuals || individuals.length === 0) {
     throw new Error("individuals is missing or empty");
@@ -37,7 +40,7 @@ export default ({
       id: getId(individual, "I"),
       gender: getGender(individual),
       names: getNames(individual),
-      births: getBirths(individual)
+      births: getBirths({ individual, places })
     };
 
     if (families && families.length > 0) {

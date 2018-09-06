@@ -3,8 +3,15 @@ import findTags from "../helpers/findTags";
 
 import type { Seed } from "../types/seeds";
 import type { Births } from "../types/individuals";
+import type { Places } from "../types/places";
 
-const getBirths = (individual: Seed): Births => {
+const getBirths = ({
+  individual,
+  places
+}: {
+  individual: Seed,
+  places: Places
+}): Births => {
   const tags = findTags(individual.tree, "BIRT");
 
   if (!tags || !tags.length === 0) {
@@ -12,17 +19,36 @@ const getBirths = (individual: Seed): Births => {
   }
 
   return tags.map((tag: Seed) => {
-    const place = findTags(tag.tree, "PLAC");
-    const date = findTags(tag.tree, "DATE");
+    const placeTag = findTags(tag.tree, "PLAC");
+    const dateTag = findTags(tag.tree, "DATE");
 
     const result = {};
 
-    if (place.length && place[0] && place[0].data) {
-      result.place = {};
-      result.place.name = place[0] && place[0].data;
+    if (placeTag.length && placeTag[0] && placeTag[0].data) {
+      const name = placeTag[0] && placeTag[0].data;
+      if (name) {
+        if (!places || places.length === 0) {
+          result.place = {
+            name
+          };
+        } else {
+          const place = places.find(p => p.name === name);
+
+          if (place) {
+            result.place = {
+              id: place.id,
+              name
+            };
+          } else {
+            result.place = {
+              name
+            };
+          }
+        }
+      }
     }
-    if (date.length && date[0] && date[0].data) {
-      result.date = date[0].data;
+    if (dateTag.length && dateTag[0] && dateTag[0].data) {
+      result.date = dateTag[0].data;
     }
 
     return result;
