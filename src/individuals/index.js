@@ -1,6 +1,7 @@
 // @flow
 import getBirths from "./getBirths";
 import getChildren from "./getChildren";
+import getDeaths from "./getDeaths";
 import getGender from "./getGender";
 import getId from "../helpers/getId";
 import getNames from "./getNames";
@@ -14,10 +15,12 @@ import type { Seed, Seeds } from "../types/seeds";
 /**
  * Convert raw data into a structured and denormalized object
  *
- * Available in v0.1
+ * Available in v0.2
  *  - id
- *  - names
+ *  - births
+ *  - deaths
  *  - gender
+ *  - names
  *  - children
  *  - parents
  */
@@ -38,9 +41,10 @@ export default ({
   return individuals.map((individual: Seed) => {
     const result: Object = {
       id: getId(individual, "I"),
+      births: getBirths({ individual, places }),
+      deaths: getDeaths({ individual, places }),
       gender: getGender(individual),
-      names: getNames(individual),
-      births: getBirths({ individual, places })
+      names: getNames(individual)
     };
 
     if (families && families.length > 0) {

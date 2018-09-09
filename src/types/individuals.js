@@ -30,6 +30,16 @@ export type Birth = {|
 
 export type Births = Array<Birth>;
 
+export type Death = {|
+  date: string,
+  place: {|
+    id: string,
+    name: string
+  |}
+|};
+
+export type Deaths = Array<Death>;
+
 export type Individual = {|
   id: IndividualId,
   children: Children,
