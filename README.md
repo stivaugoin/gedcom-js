@@ -32,17 +32,33 @@ Input:
 
 ```
 0 @P1@ INDI
+1 BIRT
+2 DATE 1980-07-31
+2 PLAC Godric's Hollow, England, Great Britain
 1 NAME Harry /Potter/
 1 SEX M
 1 FAMC @F1@
 0 @P2@ INDI
+1 BIRT
+2 PLAC England, Great Britain
+2 DATE 1960-03-27
 1 NAME James /Potter/
 1 SEX M
+1 FAMC @F2@
 1 FAMS @F1@
+1 DEAT
+2 PLAC Godric's Hollow, England, Great Britain
+2 DATE 1981-10-31
 0 @P3@ INDI
+1 BIRT
+2 PLAC Cokeworth, Midlands, England, Great Britain
+2 DATE 1960-01-30
 1 NAME Lily /Evans/
 1 SEX F
 1 FAMS @F1@
+1 DEAT
+2 PLAC Godric's Hollow, England, Great Britain
+2 DATE 1981-10-31
 0 @F1@ FAM
 1 HUSB @P2@
 1 WIFE @P3@
@@ -53,66 +69,103 @@ Output:
 
 ```
 {
-  individuals: [
+  "individuals": [
     {
-      id: "I1",
-      gender: "M",
-      names: [
+      "id": "I1",
+      "gender": "M",
+      "names": [{ "fname": "Harry", "lname": "Potter" }],
+      "births": [
         {
-          fname: "Harry",
-          lname: "Potter",
-        },
-      ],
-      children: [],
-      parents: [
-        {
-          id: "I2",
-          relation: "father",
-          fname: "James",
-          lname: "Potter",
-        },
-        {
-          id: "I3",
-          relation: "mother",
-          fname: "Lily",
-          lname: "Evans",
+          "date": "1980-07-31",
+          "place": {
+            "id": "P1",
+            "name": "Cokeworth, Midlands, England, Great Britain"
+          },
         }
       ],
+      "children": [],
+      "parents": [
+        {
+          "id": "I2",
+          "relation": "father",
+          "fname": "James",
+          "lname": "Potter"
+        },
+        {
+          "id": "I3",
+          "relation": "mother",
+          "fname": "Lily",
+          "lname": "Evans"
+        }
+      ],
+      "deaths": [],
     },
     {
-      id: "I2",
-      gender: "M",
-      names: [
+      "id": "I2",
+      "gender": "M",
+      "names": [{ "fname": "James", "lname": "Potter" }],
+      "births": [
         {
-          fname: "James",
-          lname: "Potter",
-        },
+          "date": "1960-03-27",
+          "place": {
+            "id": "P3",
+            "name": "England, Great Britain"
+          },
+        }
       ],
-      children: [
+      "children": [{ "id": "I1", "fname": "Harry", "lname": "Potter" }],
+      "parents": [],
+      "deaths": [
         {
-          id: "I1",
-          fname: "Harry",
-          lname: "Potter",
-        },
-      ],
-      parents: [],
+          "date": "1981-10-31",
+          "place": {
+            "id": "P2",
+            "name": "Godric's Hollow, England, Great Britain"
+          }
+        }
+      ]
     },
     {
-      id: "I3",
-      gender: "F",
-      names: [
+      "id": "I3",
+      "gender": "F",
+      "names": [{ "fname": "Lily", "lname": "Evans" }],
+      "births": [
         {
-          fname: "Lily",
-          lname: "Evans",
-        },
+          "date": "1960-01-30",
+          "place": {
+            "id": "P1",
+            "name": "Cokeworth, Midlands, England, Great Britain"
+          },
+        }
       ],
-      children: [
+      "children": [{ "id": "I1", "fname": "Harry", "lname": "Potter" }],
+      "parents": [],
+      "deaths": [
         {
-          id: "I1",
-          fname: "Harry",
-          lname: "Potter",
-        },
-      ],
+          "date": "1981-10-31",
+          "place": {
+            "id": "P2",
+            "name": "Godric's Hollow, England, Great Britain"
+          }
+        }
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "P1",
+      "name": "Cokeworth, Midlands, England, Great Britain",
+      "count": 2
+    },
+    {
+      "id": "P2",
+      "name": "Godric's Hollow, England, Great Britain",
+      "count": 1
+    },
+    {
+      "id": "P3",
+      "name": "England, Great Britain",
+      "count": 1
     }
   ],
 }
@@ -122,12 +175,12 @@ Output:
 
 - Improve this README
 - Add more information about individuals
-  - Birth
+  - ~~Birth~~
   - Marriage
-  - Death
+  - ~~Death~~
   - Baptism
   - ...
-- Parse places
+- ~~Parse places~~
 - Parse sources
 
 ## License
