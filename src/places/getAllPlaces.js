@@ -2,16 +2,13 @@
 import type { Places } from "../types/places";
 import type { Seed, Seeds } from "../types/seeds";
 
-import findTags from "../helpers/findTags";
-
 export default (seeds: Seeds): Places => {
   const placesMap = new Map();
 
   function getTree(data: Seeds) {
     data.forEach((d: Seed) => {
-      const place = findTags(data, "PLAC");
-      if (place && place.length > 0) {
-        const name = place[0].data;
+      if (d.tag === "PLAC") {
+        const name = d.data;
         if (placesMap.get(name)) {
           placesMap.set(name, placesMap.get(name) + 1);
         } else {

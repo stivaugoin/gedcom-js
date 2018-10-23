@@ -30,6 +30,10 @@ describe("getAllPlaces", () => {
       {
         tree: [
           {
+            tag: "DATE",
+            data: "1980-07-31"
+          },
+          {
             tag: "PLAC",
             data: "Cokeworth, Midlands, England, Great Britain"
           }
@@ -37,6 +41,10 @@ describe("getAllPlaces", () => {
       },
       {
         tree: [
+          {
+            tag: "DATE",
+            data: "1980-07-31"
+          },
           {
             tag: "PLAC",
             data: "Cokeworth, Midlands, England, Great Britain"
