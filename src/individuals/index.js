@@ -6,6 +6,7 @@ import getGender from "./getGender";
 import getId from "../helpers/getId";
 import getNames from "./getNames";
 import getParents from "./getParents";
+import getWeddings from "./getWeddings";
 
 import type { Individuals } from "../types/individuals";
 import type { Places } from "../types/places";
@@ -50,6 +51,12 @@ export default ({
     if (families && families.length > 0) {
       result.children = getChildren({ individual, individuals, families });
       result.parents = getParents({ individual, individuals, families });
+      result.weddings = getWeddings({
+        individual,
+        individuals,
+        families,
+        places
+      });
     }
 
     return result;
