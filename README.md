@@ -6,6 +6,9 @@
 
 Convert a GEDCOM file into a JS object.
 
+## Live preview
+[![Edit gedcom-js](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/1r581n3v9q?hidenavigation=1&view=preview)
+
 ## Usage
 
 Yarn
